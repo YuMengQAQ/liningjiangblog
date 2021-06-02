@@ -1,5 +1,6 @@
 module.exports = {
   title: "欢迎来到雨梦的博客",
+  base: "/liningjiangblog/",
   description: "一个小小菜鸟程序员的博客",
   theme: "@vuepress/theme-blog", // OR shortcut: @vuepress/blog
   themeConfig: {
