@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>使用 Github Pages 部署 Vue 项目总结 | 欢迎来到雨梦的博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="
+1、准备一个自己的域名
+
+GitHub 默认的免费域名强制开启 https
+
+在 https 协议中无法发出 http 请求
+
+我们项目中使用的接口都是 http 协议的，所以需要准备一个自己的域名，因为自定义域名可以选择使用 http 协议或者 https 协议
+
+或者你让接口开发者为接口服务提供 https 的支持
+
+2、在域名管理后台添加 CNAME 记录 ...">
+    
+    <link rel="preload" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css" as="style"><link rel="preload" href="/liningjiangblog/assets/js/app.7af0e6dd.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/6.44bff8c3.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/3.a0d6d2ec.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/22.fdcbc6c0.js" as="script"><link rel="prefetch" href="/liningjiangblog/assets/js/10.6920e32d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/11.264fbc06.js"><link rel="prefetch" href="/liningjiangblog/assets/js/12.7448f34d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/13.a19f686a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/14.f2ff1ee7.js"><link rel="prefetch" href="/liningjiangblog/assets/js/15.c8c9c75c.js"><link rel="prefetch" href="/liningjiangblog/assets/js/16.3568ea1a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/17.d0df175f.js"><link rel="prefetch" href="/liningjiangblog/assets/js/18.8ac063d6.js"><link rel="prefetch" href="/liningjiangblog/assets/js/19.a756df17.js"><link rel="prefetch" href="/liningjiangblog/assets/js/20.a57df8d0.js"><link rel="prefetch" href="/liningjiangblog/assets/js/21.53157ddb.js"><link rel="prefetch" href="/liningjiangblog/assets/js/4.a1408bad.js"><link rel="prefetch" href="/liningjiangblog/assets/js/5.d90eba38.js"><link rel="prefetch" href="/liningjiangblog/assets/js/7.a92e51ab.js"><link rel="prefetch" href="/liningjiangblog/assets/js/8.899737b9.js"><link rel="prefetch" href="/liningjiangblog/assets/js/9.527df420.js"><link rel="prefetch" href="/liningjiangblog/assets/js/vuejs-paginate.e9164293.js">
+    <link rel="stylesheet" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/liningjiangblog/" class="nav-link home-link">欢迎来到雨梦的博客 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/liningjiangblog/" class="nav-link mobile-home-link">欢迎来到雨梦的博客 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="mobile-nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">liningjiang</span> <span itemprop="address">   in Chengdu</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-6-2">
+      Wed Jun 02 2021
+    </time></div> <!----></div></header> <div itemprop="articleBody" class="content__default"><h1 id="使用-github-pages-部署-vue-项目总结"><a href="#使用-github-pages-部署-vue-项目总结" class="header-anchor">#</a> 使用 Github Pages 部署 Vue 项目总结</h1> <h2 id="_1、准备一个自己的域名"><a href="#_1、准备一个自己的域名" class="header-anchor">#</a> 1、准备一个自己的域名</h2> <ul><li><p>GitHub 默认的免费域名强制开启 https</p></li> <li><p>在 https 协议中无法发出 http 请求</p></li> <li><p>我们项目中使用的接口都是 http 协议的，所以需要准备一个自己的域名，因为自定义域名可以选择使用 http 协议或者 https 协议</p></li> <li><p>或者你让接口开发者为接口服务提供 https 的支持</p></li></ul> <h2 id="_2、在域名管理后台添加-cname-记录"><a href="#_2、在域名管理后台添加-cname-记录" class="header-anchor">#</a> 2、在域名管理后台添加 <code>CNAME</code> 记录</h2> <ul><li>主机就是域名前面的前缀名字
+<ul><li>比如：toutiao.lining-jiang.xyz</li></ul></li> <li>指向必须指向你的 github 地址，
+<ul><li>比如：yumengqaq.github.io</li></ul></li> <li>TTP 默认一小时</li></ul> <h2 id="_3、在项目的-public-目录中添加-cname-文件"><a href="#_3、在项目的-public-目录中添加-cname-文件" class="header-anchor">#</a> 3、在项目的 <code>public</code> 目录中添加 <code>CNAME</code> 文件</h2> <ul><li><div class="language- extra-class"><pre class="language-text"><code>toutiao.lining-jiang.xyz
+</code></pre></div></li></ul> <h2 id="_4、生成-github-访问令牌"><a href="#_4、生成-github-访问令牌" class="header-anchor">#</a> 4、生成 GitHub 访问令牌</h2> <ul><li>点击用户 settings</li> <li>左侧有一个 Developer settings</li> <li>点击 Personal access tokens，再点击 Generate new token</li> <li>勾选 repo、workflow</li> <li>点击创建成功（备注：token 仅显示 1 次，之后无法查看，所以建议把 token 保存到你的私密位置。）</li></ul> <h2 id="_5、创建远程仓库-如果创建就不需要了"><a href="#_5、创建远程仓库-如果创建就不需要了" class="header-anchor">#</a> 5、创建远程仓库（如果创建就不需要了）</h2> <h2 id="_6、将-github-访问令牌添加到远程仓库的-secrets-中"><a href="#_6、将-github-访问令牌添加到远程仓库的-secrets-中" class="header-anchor">#</a> 6、将 GitHub 访问令牌添加到远程仓库的 secrets 中</h2> <ul><li><div class="language- extra-class"><pre class="language-text"><code>Name：ACCESS_TOKEN
+Value: 之前生成的 GitHub 访问令牌
+</code></pre></div></li></ul> <h2 id="_7、在项目根目录中添加-github-workflows-main-yml"><a href="#_7、在项目根目录中添加-github-workflows-main-yml" class="header-anchor">#</a> 7、在项目根目录中添加 <code>.github/workflows/main.yml</code></h2> <ul><li><div class="language- extra-class"><pre class="language-text"><code>name: build and deploy
+
+# 当 master 分支 push 代码的时候触发 workflow
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # 下载仓库代码
+    - uses: actions/checkout@v2
+
+    # 缓存依赖
+    - name: Get yarn cache
+      id: yarn-cache
+      run: echo &quot;::set-output name=dir::$(yarn cache dir)&quot;
+    - uses: actions/cache@v1
+      with:
+        path: ${{ steps.yarn-cache.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    # 安装依赖
+    - run: yarn
+
+    # 打包构建
+    - run: yarn build
+
+    # 发布到 GitHub Pages
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.ACCESS_TOKEN }} # 访问秘钥
+        PUBLISH_BRANCH: gh-pages # 推送分支
+        PUBLISH_DIR: ./dist # 部署目录
+</code></pre></div></li></ul> <h2 id="_8、把项目代码推送到远程仓库"><a href="#_8、把项目代码推送到远程仓库" class="header-anchor">#</a> 8、把项目代码推送到远程仓库</h2> <h2 id="_9、查看构建部署状态-它需要执行一个构建部署的流程-没那么快"><a href="#_9、查看构建部署状态-它需要执行一个构建部署的流程-没那么快" class="header-anchor">#</a> 9、查看构建部署状态（它需要执行一个构建部署的流程，没那么快）</h2> <p>最后就是如何更新项目网站？</p> <div class="language- extra-class"><pre class="language-text"><code>很简单，修改源代码，把更新提交到远程仓库即可。
+说白了你可以忽略网站部署这件事儿了。
+</code></pre></div><p>然后你可以通过仓库中的 Action 查看构建部署状态（非必须）。</p></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#_1、准备一个自己的域名" title="1、准备一个自己的域名">1、准备一个自己的域名</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2、在域名管理后台添加-cname-记录" title="2、在域名管理后台添加 CNAME 记录">2、在域名管理后台添加 CNAME 记录</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_3、在项目的-public-目录中添加-cname-文件" title="3、在项目的 public 目录中添加 CNAME 文件">3、在项目的 public 目录中添加 CNAME 文件</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_4、生成-github-访问令牌" title="4、生成 GitHub 访问令牌">4、生成 GitHub 访问令牌</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_5、创建远程仓库-如果创建就不需要了" title="5、创建远程仓库（如果创建就不需要了）">5、创建远程仓库（如果创建就不需要了）</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_6、将-github-访问令牌添加到远程仓库的-secrets-中" title="6、将 GitHub 访问令牌添加到远程仓库的 secrets 中">6、将 GitHub 访问令牌添加到远程仓库的 secrets 中</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_7、在项目根目录中添加-github-workflows-main-yml" title="7、在项目根目录中添加 .github/workflows/main.yml">7、在项目根目录中添加 .github/workflows/main.yml</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_8、把项目代码推送到远程仓库" title="8、把项目代码推送到远程仓库">8、把项目代码推送到远程仓库</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_9、查看构建部署状态-它需要执行一个构建部署的流程-没那么快" title="9、查看构建部署状态（它需要执行一个构建部署的流程，没那么快）">9、查看构建部署状态（它需要执行一个构建部署的流程，没那么快）</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/YuMengQAQ" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="https://twitter.com/_ulivz" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter" data-v-3d9deeb8><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>MIT Licensed | Copyright © 2018-present Vue.js</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/liningjiangblog/assets/js/app.7af0e6dd.js" defer></script><script src="/liningjiangblog/assets/js/6.44bff8c3.js" defer></script><script src="/liningjiangblog/assets/js/3.a0d6d2ec.js" defer></script><script src="/liningjiangblog/assets/js/22.fdcbc6c0.js" defer></script>
+  </body>
+</html>

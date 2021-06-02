@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Echarts 使用套路总结 | 欢迎来到雨梦的博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="
+
+1、为 Echarts 准备一个具备大小（宽高）的画布容器 DOM
+2、加载 echarts
+3、初始化图表
+4、指定图表的配置项和数据
+5、使用刚指定的配置项和数据显示图表
+
+如果使用以来百度地图的图表，则必须加载 echarts 百度地图的扩展
+
+Vue 中使用 Echarts5 版本
+
+先 npm 安装
+
+npm install echarts ...">
+    
+    <link rel="preload" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css" as="style"><link rel="preload" href="/liningjiangblog/assets/js/app.7af0e6dd.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/6.44bff8c3.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/3.a0d6d2ec.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/21.53157ddb.js" as="script"><link rel="prefetch" href="/liningjiangblog/assets/js/10.6920e32d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/11.264fbc06.js"><link rel="prefetch" href="/liningjiangblog/assets/js/12.7448f34d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/13.a19f686a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/14.f2ff1ee7.js"><link rel="prefetch" href="/liningjiangblog/assets/js/15.c8c9c75c.js"><link rel="prefetch" href="/liningjiangblog/assets/js/16.3568ea1a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/17.d0df175f.js"><link rel="prefetch" href="/liningjiangblog/assets/js/18.8ac063d6.js"><link rel="prefetch" href="/liningjiangblog/assets/js/19.a756df17.js"><link rel="prefetch" href="/liningjiangblog/assets/js/20.a57df8d0.js"><link rel="prefetch" href="/liningjiangblog/assets/js/22.fdcbc6c0.js"><link rel="prefetch" href="/liningjiangblog/assets/js/4.a1408bad.js"><link rel="prefetch" href="/liningjiangblog/assets/js/5.d90eba38.js"><link rel="prefetch" href="/liningjiangblog/assets/js/7.a92e51ab.js"><link rel="prefetch" href="/liningjiangblog/assets/js/8.899737b9.js"><link rel="prefetch" href="/liningjiangblog/assets/js/9.527df420.js"><link rel="prefetch" href="/liningjiangblog/assets/js/vuejs-paginate.e9164293.js">
+    <link rel="stylesheet" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/liningjiangblog/" class="nav-link home-link">欢迎来到雨梦的博客 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/liningjiangblog/" class="nav-link mobile-home-link">欢迎来到雨梦的博客 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="mobile-nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">liningjiang</span> <span itemprop="address">   in Chengdu</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-5-31">
+      Mon May 31 2021
+    </time></div> <!----></div></header> <div itemprop="articleBody" class="content__default"><h1 id="echarts-使用套路总结"><a href="#echarts-使用套路总结" class="header-anchor">#</a> Echarts 使用套路总结</h1> <ul><li><p>1、为 Echarts 准备一个具备大小（宽高）的画布容器 DOM</p></li> <li><p>2、加载 echarts</p></li> <li><p>3、初始化图表</p></li> <li><p>4、指定图表的配置项和数据</p></li> <li><p>5、使用刚指定的配置项和数据显示图表</p></li> <li><p>如果使用以来百度地图的图表，则必须加载 echarts 百度地图的扩展</p></li></ul> <h2 id="vue-中使用-echarts5-版本"><a href="#vue-中使用-echarts5-版本" class="header-anchor">#</a> Vue 中使用 Echarts5 版本</h2> <ul><li>先 npm 安装</li></ul> <div class="language- extra-class"><pre class="language-text"><code>npm install echarts --save
+</code></pre></div><ul><li>然后封装 echatsUi.js 工具函数</li></ul> <div class="language- extra-class"><pre class="language-text"><code>// 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
+import * as echarts from &quot;echarts/core&quot;;
+// 引入各种图表，图表后缀都为 Chart
+import { BarChart, PieChart } from &quot;echarts/charts&quot;; //这里我引用两个类型的图表
+// 引入提示框，标题，直角坐标系等组件，组件后缀都为 Component
+import {
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  LegendComponent,
+  // GeoCoComponent
+} from &quot;echarts/components&quot;;
+// 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
+import { CanvasRenderer } from &quot;echarts/renderers&quot;;
+
+// 注册必须的组件
+echarts.use([
+  TitleComponent,
+  TooltipComponent,
+  GridComponent,
+  LegendComponent,
+  BarChart,
+  PieChart,
+  CanvasRenderer,
+]);
+
+export default echarts;
+</code></pre></div><ul><li>在 main.js 中挂载到 Vue 原型中</li></ul> <div class="language- extra-class"><pre class="language-text"><code>Vue.prototype.$echarts = echarts;
+</code></pre></div><ul><li>为 ECharts 准备一个具备大小（宽高）的 Dom</li></ul> <div class="language- extra-class"><pre class="language-text"><code>&lt;div ref=&quot;main&quot; style=&quot;width: 600px;height:400px&quot;&gt;&lt;/div&gt;
+</code></pre></div><ul><li>基于准备好的 dom，初始化 echarts 实例</li></ul> <div class="language- extra-class"><pre class="language-text"><code> let myChart = this.$echarts.init(this.$refs[&quot;main&quot;]);
+</code></pre></div><ul><li>指定图表的配置项和数据</li></ul> <div class="language- extra-class"><pre class="language-text"><code> let option = {
+      title: {
+        text: &quot;ECharts 入门示例&quot;,
+      },
+      tooltip: {},
+      legend: {
+        data: [&quot;销量&quot;],
+      },
+      xAxis: {
+        data: [&quot;衬衫&quot;, &quot;羊毛衫&quot;, &quot;雪纺衫&quot;, &quot;裤子&quot;, &quot;高跟鞋&quot;, &quot;袜子&quot;],
+      },
+      yAxis: {},
+      series: [
+        {
+          name: &quot;销量&quot;,
+          type: &quot;bar&quot;,
+          data: [5, 20, 36, 10, 10, 20],
+        },
+      ],
+    };
+
+</code></pre></div><ul><li>使用刚指定的配置项和数据显示图表。</li></ul> <div class="language- extra-class"><pre class="language-text"><code>myChart.setOption(option);
+</code></pre></div></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#vue-中使用-echarts5-版本" title="Vue 中使用 Echarts5 版本">Vue 中使用 Echarts5 版本</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/YuMengQAQ" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="https://twitter.com/_ulivz" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter" data-v-3d9deeb8><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>MIT Licensed | Copyright © 2018-present Vue.js</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/liningjiangblog/assets/js/app.7af0e6dd.js" defer></script><script src="/liningjiangblog/assets/js/6.44bff8c3.js" defer></script><script src="/liningjiangblog/assets/js/3.a0d6d2ec.js" defer></script><script src="/liningjiangblog/assets/js/21.53157ddb.js" defer></script>
+  </body>
+</html>

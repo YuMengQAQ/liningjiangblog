@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>热点移动端总结 | 欢迎来到雨梦的博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="
+2021.5.14
+
+今天完成了频道编辑模块和文章搜索模块中的搜索历史和搜索结果、联想搜索。
+
+至今为止遇到的技术难点（知识掌握不牢固）：
+
+  vuex 刷新过后如何保持状态不丢失？
+
+  如何做数据防抖处理（时间转换及深拷贝等数组去重的第三方方法运用）
+
+  van-tabs 每个选项卡所展示的数据不同，怎么实现的思路？
+
+  如何使 van-ceil 展示的 ...">
+    
+    <link rel="preload" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css" as="style"><link rel="preload" href="/liningjiangblog/assets/js/app.7af0e6dd.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/6.44bff8c3.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/3.a0d6d2ec.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/15.c8c9c75c.js" as="script"><link rel="prefetch" href="/liningjiangblog/assets/js/10.6920e32d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/11.264fbc06.js"><link rel="prefetch" href="/liningjiangblog/assets/js/12.7448f34d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/13.a19f686a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/14.f2ff1ee7.js"><link rel="prefetch" href="/liningjiangblog/assets/js/16.3568ea1a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/17.d0df175f.js"><link rel="prefetch" href="/liningjiangblog/assets/js/18.8ac063d6.js"><link rel="prefetch" href="/liningjiangblog/assets/js/19.a756df17.js"><link rel="prefetch" href="/liningjiangblog/assets/js/20.a57df8d0.js"><link rel="prefetch" href="/liningjiangblog/assets/js/21.53157ddb.js"><link rel="prefetch" href="/liningjiangblog/assets/js/22.fdcbc6c0.js"><link rel="prefetch" href="/liningjiangblog/assets/js/4.a1408bad.js"><link rel="prefetch" href="/liningjiangblog/assets/js/5.d90eba38.js"><link rel="prefetch" href="/liningjiangblog/assets/js/7.a92e51ab.js"><link rel="prefetch" href="/liningjiangblog/assets/js/8.899737b9.js"><link rel="prefetch" href="/liningjiangblog/assets/js/9.527df420.js"><link rel="prefetch" href="/liningjiangblog/assets/js/vuejs-paginate.e9164293.js">
+    <link rel="stylesheet" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/liningjiangblog/" class="nav-link home-link">欢迎来到雨梦的博客 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/liningjiangblog/" class="nav-link mobile-home-link">欢迎来到雨梦的博客 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="mobile-nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">liningjiang</span> <span itemprop="address">   in Chengdu</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-6-2">
+      Wed Jun 02 2021
+    </time></div> <!----></div></header> <div itemprop="articleBody" class="content__default"><h1 id="热点移动端总结"><a href="#热点移动端总结" class="header-anchor">#</a> 热点移动端总结</h1> <h2 id="_2021-5-14"><a href="#_2021-5-14" class="header-anchor">#</a> 2021.5.14</h2> <ul><li><p>今天完成了频道编辑模块和文章搜索模块中的搜索历史和搜索结果、联想搜索。</p></li> <li><p>至今为止遇到的技术难点（知识掌握不牢固）：</p> <ul><li><p>vuex 刷新过后如何保持状态不丢失？</p></li> <li><p>如何做数据防抖处理（时间转换及深拷贝等数组去重的第三方方法运用）</p></li> <li><p>van-tabs 每个选项卡所展示的数据不同，怎么实现的思路？</p></li> <li><p>如何使 van-ceil 展示的指定数据高亮显示</p> <ul><li></li></ul></li></ul> <ul><li>添加数据到数组中并且数组去重并保证加入的数据在数组的最前面业务逻辑（简单实现）?怎么运用 new Set 进行去重？</li> <li>如何做好移动端的适配？</li> <li>频道编辑模块中，获取我的频道和频道推荐数据，之后再对我的频道进行添加或者删除，在对频道推荐进行列表渲染时普通直接对数组进行渲染，后期需要单独对数组设置添加或者删除，有更好的解决方式？</li></ul></li> <li><p>目前解决方案</p> <ul><li><p>过 vuex 管理状态和本地存储技术 localstorage 来解决，当 vuex 状态初始化的时候就从本地存储中获取数据</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>import Vue from &quot;vue&quot;;
+import Vuex from &quot;vuex&quot;;
+import { setItem, getItem } from &quot;@/utils/storage&quot;;
+Vue.use(Vuex);
+const USER = &quot;redian-user&quot;;
+export default new Vuex.Store({
+state: {
+  user: getItem(USER),
+  // user: JSON.parse(window.localStorage.getItem(&quot;user&quot;))
+ },
+ mutations: {
+  setUser(state, data) {
+   state.user = data;
+   // window.localStorage.setItem(&quot;user&quot;,JSON.stringify(state.user))
+   setItem(USER, state.user);
+  },
+ },
+ actions: {},
+ modules: {},
+});
+</code></pre></div></li></ul></li> <li><p>本地存储模块</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>  // 获取状态值
+export const getItem = name =&gt; {
+	const data = window.localStorage.getItem(name)
+	//data可能不是JSON字符串
+     try {
+      	return JSON.parse(data)
+     }catch (error) {
+      	return data
+     }
+}
+  // 改变状态值
+ export const setItem = (name,value) =&gt; {
+     if(typeof(value)==='object') {
+      	value = JSON.stringify(value)
+     }
+     window.localStorage.setItem(name,value)
+    }
+ //删除状态值
+ export const removeItem = name =&gt; {
+    window.localStorage.removeItem(name)
+ }
+</code></pre></div></li></ul></li> <li><p>通过 lodash 里的 debounce 进行数据防抖及 dayjs 进行日期处理</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>watch: {
+
+      searchText: {
+
+       handler: debounce(async function() {
+
+    ​    const { data: res } = await getSearchSuggestion(this.searchText);
+
+    ​    this.suggestion = res.data.options;
+
+       }, 200),
+
+       immediate: true,
+
+      },
+
+     },
+</code></pre></div></li> <li><div class="language- extra-class"><pre class="language-text"><code>
+  var dayjs = require(&quot;dayjs&quot;);
+
+  import Vue from &quot;vue&quot;;
+
+  //import dayjs from 'dayjs' // ES 2015
+
+  // 加载中文语言包
+
+  import &quot;dayjs/locale/zh-cn&quot;;
+
+
+
+  import relativeTime from &quot;dayjs/plugin/relativeTime&quot;;
+
+
+// 配置使用处理相对时间的插件
+
+dayjs.extend(relativeTime);
+
+
+// 配置使用中文语言包
+
+dayjs.locale(&quot;zh-cn&quot;);
+
+
+// 全局过滤器：处理相对时间
+
+Vue.filter(&quot;relativeTime&quot;, (value) =&gt; {
+
+ return dayjs().from(dayjs(value));
+
+});
+</code></pre></div></li></ul></li> <li><p>通过封装组件的方式，把数据通过 props 来传给子组件进行传递，通过正则匹配和 v-html 指令来实现。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>highlight(item) {
+
+   //RegExp 是正则表达式的构造函数
+
+   //参数1：字符串
+
+   //参数2: 匹配模式
+
+   //返回值：正则对象
+
+   return item.replace(
+
+​    new RegExp(this.searchText, &quot;gi&quot;),
+
+​    `&lt;span style=&quot;color:red&quot;&gt;${this.searchText}&lt;/span&gt;`
+
+   );
+
+ },
+</code></pre></div></li></ul></li> <li><p>通过数组的 indexof 方法来实现</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>//数组去重
+
+   const index = this.searchHistory.indexOf(searchText);
+
+   if (index !== -1) {
+
+​    this.searchHistory.splice(index, 1);
+
+   }
+
+   this.searchHistory.unshift(searchText);
+
+new set去重方式(两个数组合并)
+
+//加载本地和线上历史记录
+
+  async loadSearchHistory() {
+
+   let localSearchHistory = getItem(&quot;search-history&quot;) || [];
+
+   if (this.user) {
+
+​    const { data: res } = await getSearchHistory();
+
+​    //数组去重
+
+​    localSearchHistory = [
+
+​     ...new Set([...localSearchHistory, ...res.data.keywords]),
+
+​    ];
+
+   }
+
+   this.searchHistory = localSearchHistory;
+
+  },
+</code></pre></div></li></ul></li> <li><p>目前移动端适配是通过 postcss 来进行适配，具体配置在 postcss.config.js。</p> <ul><li><p><a href="https://github.com/postcss/autoprefixer" target="_blank" rel="noopener noreferrer">Autoprefixer<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 插件可以实现自动添加浏览器相关的声明前缀</p></li> <li><p><a href="https://github.com/csstools/postcss-preset-env" target="_blank" rel="noopener noreferrer">PostCSS Preset Env<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 插件可以让你使用更新的 CSS 语法特性并实现向下兼容</p></li> <li><p><a href="https://github.com/cuth/postcss-pxtorem" target="_blank" rel="noopener noreferrer">postcss-pxtorem<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 可以实现将 px 转换为 rem</p></li> <li><p><a href="https://cli.vuejs.org/zh/guide/css.html#postcss" target="_blank" rel="noopener noreferrer">Vue CLI 默认集成了 PostCSS<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>，并且默认开启了 <a href="https://github.com/postcss/autoprefixer" target="_blank" rel="noopener noreferrer">autoprefixer<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> 插件。</p></li> <li><p><a href="https://github.com/cuth/postcss-pxtorem" target="_blank" rel="noopener noreferrer">postcss-pxtorem<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>的配置文件</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>// postcss.config.js
+
+module.exports = {
+
+ plugins: {
+
+  //兼容的版本
+
+  // autoprefixer: {
+
+  //  browsers: [&quot;Android &gt;= 4.0&quot;, &quot;iOS &gt;= 8&quot;],
+
+  // },
+
+  &quot;postcss-pxtorem&quot;: {
+
+   rootValue: 37.5,
+
+   propList: [&quot;*&quot;],
+
+  },
+
+ },
+
+};
+</code></pre></div></li></ul></li></ul></li> <li><p>通过 computed 属性,运用数组的 filter 和 find 方法来处理数组，然而 computed 属性会自动随着属性值改变而改变</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>computed: {
+
+  ...mapState([&quot;user&quot;]),
+
+  recommendChannel() {
+
+   return this.allChannels.filter((allchannel) =&gt; {
+
+​    return !this.channels.find((channel) =&gt; {
+
+​     return allchannel.id === channel.id;
+
+​    });
+
+   });
+
+  },
+
+ },
+</code></pre></div></li></ul></li></ul></li></ul> <h2 id="_2021-5-18"><a href="#_2021-5-18" class="header-anchor">#</a> 2021.5.18</h2> <ul><li><p>今天做了文章详情和发布评论以及评论列表模块，目前遇到的技术难点有：</p> <ul><li>去文章详情页面的传递的路由参数整数过大，导致传递过去的路由参数拿不完整</li> <li>每次数据发生变化都需要本地存储，一个一个存储代码糅合。</li></ul></li> <li><p>目前解决方案</p> <ul><li><p>运用 JSONBIG 解决参数过大的问题，让大整数转换成对象，需要使用的时候转换一下即可。在 axios 请求模块中加入以下代码。</p> <ul><li><p>npm i json-bigint</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>import jsonbig from &quot;json-bigint&quot;
+
+//封装请求模块
+
+const request = axios.create({
+
+ baseURL: &quot;http://ttapi.research.itcast.cn/&quot;, // 基础路径
+
+ // transformResponse 允许自定义原始的响应数据（字符串）
+
+ transformResponse: [
+
+  function(data) {
+
+   try {
+
+​    // 如果转换成功则返回转换的数据结果
+
+​    return jsonBig.parse(data);
+
+   } catch (err) {
+
+​    // 如果转换失败，则包装为统一数据格式并返回
+
+​    return {
+
+​     data,
+
+​    };
+
+   }
+
+  },
+
+ ],
+
+});
+</code></pre></div></li></ul></li> <li><p>通过 watch 函数来监视数据的变化然后对数据进行统一存储。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>watch: {
+
+  //通过监视对历史记录数据进行统一处理
+
+  searchHistory() {
+
+   setItem(&quot;search-history&quot;,this.searchHistory)
+
+  }
+
+},
+</code></pre></div></li></ul></li></ul></li></ul> <h2 id="_2021-5-21"><a href="#_2021-5-21" class="header-anchor">#</a> 2021.5.21</h2> <ul><li><p>最后几天项目终于完工了，最终完成了编辑资料以及小智同学、功能优化。</p></li> <li><p>遇到的困难：</p> <ul><li>编辑资料基本都是 vantUI 组件的应用，但是其中照片更新以及图片裁切怎么做？</li> <li>小智同学是通过 websoket 协议进行通信的，怎么拿到返回的数据和把自己的数据进行渲染？</li> <li>token 过期如何解决？</li> <li>组件缓存带来影响怎么解决？比如文章详情返回上一步就会回到文章顶部。</li> <li>处理页面的访问权限？</li> <li>如何对移动端网站进行应用加壳？</li></ul></li> <li><p>目前解决方案</p> <ul><li><p>照片更新是通过 file 类型的 Input 框进行文件上传，通过@onchange 事件</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>&lt;input type=&quot;file&quot; hidden ref=&quot;file&quot; accept=&quot;image/*&quot; @change=&quot;onChange&quot; /&gt;
+</code></pre></div></li> <li><p>然后拿到input框的dom对象，通过this.$refs.file.files[0]拿到这个文件类型的图片,把图片传给图片的弹出层,通过cropperjs进行图片裁切</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>import &quot;cropperjs/dist/cropper.css&quot;;
+import Cropper from &quot;cropperjs&quot;;
+</code></pre></div></li> <li><p>在mounted函数中</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>    const image = this.$refs.image;
+    let cropper = new Cropper(image, {
+      viewMode: 1,
+      dragMode: &quot;move&quot;,
+      aspectRatio: 1,
+      autoCropArea: 1,
+      cropBoxMovable: false,
+      cropBoxResizable: false,
+      background: false,
+      movable: true,
+    });
+    this.cropper = cropper;
+</code></pre></div></li> <li><p>然后裁切对象通过getCroppedCanvas方法实现</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>getCroppedCanvas() {
+      return new Promise((resolve) =&gt; {
+        this.cropper.getCroppedCanvas().toBlob((blob) =&gt; {
+          resolve(blob);
+        });
+      });
+    },
+</code></pre></div></li> <li><p>最后接口需要一个 FormData</p></li> <li><div class="language- extra-class"><pre class="language-text"><code> const file = await this.getCroppedCanvas();
+      const fd = new FormData();
+      fd.append(&quot;photo&quot;, file);
+      //传递的是个form-data
+      await editUserPhoto(fd);
+      this.$emit(&quot;update-photo&quot;, window.URL.createObjectURL(file));
+      this.$toast.success(&quot;保存成功&quot;);
+</code></pre></div></li></ul></li> <li><p>通过 socketio 来进行 websocket 连接</p> <ul><li><p>在 created 函数中</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>const socket = io(&quot;http://ttapi.research.itcast.cn&quot;);
+
+
+// 当客户端与服务器建立连接成功，触发 connect 事件
+
+socket.on(&quot;connect&quot;, () =&gt; {
+  console.log(&quot;建立连接成功！&quot;);
+});
+
+
+/ 监听接收服务端消息
+
+socket.on('message', data =&gt; {
+
+console.log('收到服务器消息：', data)
+
+})
+</code></pre></div></li> <li><p>发送消息的事件如下</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>onSendMessage () {
+
+const message = this.message.trim()
+
+if (!message) {
+
+return
+
+}
++
+
+// 发送消息
+
+this.socket.emit('message', {
+
+msg: message,
+
+timestamp: Date.now()
+
+	})
+}
+</code></pre></div></li> <li><p>最后把消息存储在数组中并清空文本框</p></li> <li><div class="language- extra-class"><pre class="language-text"><code> this.messages.push({
+
+message,
+
+})
+// 清空文本框
+    this.message =
+</code></pre></div></li> <li><p>让消息始终滚动在最底部</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>const messageList = this.$refs['message-list']
+messageList.scrollTop = messageList.scrollHeight
+</code></pre></div></li></ul></li> <li><p>token 过期</p> <ul><li><p>通过 axios 的响应拦截器进行 token 过期处理。通过响应拦截，对响应错误根据返回的不同的响应进行不同的响应提示。其中 token 过期是 401 响应码，先判断 vuex 中的 user 有没有，没有就跳转到登录页面进行登录，并封装一个方法，让跳转过去并携带当前页面的路由</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>/跳转到登录页
+function redirectLogin() {
+  router.push(&quot;/login?redirect=&quot; + router.currentRoute.fullPath);
+}
+</code></pre></div></li> <li><p>其次再拿到 user 的 refresh_token 再一次进行请求，然后拿到新的 token 赋给 vuex 的 token，通过 vuex 的 setUser 方法把 user 重新赋回去，最后把错误对象进行新的请求</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>try {
+        const { data: res } = await refreshTokenReq({
+          url: &quot;/app/v1_0/authorizations&quot;,
+          method: &quot;PUT&quot;,
+          headers: {
+            Authorization: `Bearer ${user.refresh_token}`,
+          },
+        });
+
+​    //拿到新的token再给赋回去
+​    user.token = res.data.token;
+​    store.commit(&quot;setUser&quot;, user);
+​    //error.config是本次请求的相关配置对象
+​    //通过新的user对象进行之前失败的请求
+​    return request(error.config);
+  } catch (error) {
+​    redirectLogin();
+  }
+</code></pre></div></li> <li><p>登录成功后返回之前页面</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>const redirect = this.$route.query.redirect || &quot;/&quot;;
+this.$router.push(redirect);
+</code></pre></div></li></ul></li> <li><p>组件缓存。通过 include 属性对想要缓存的组件进行缓存，但也会带来一定的问题，在 vuex 中定义 cachePage 状态，属性值是一个数组，然后映射在 app.vue 中绑定给 include 属性中。</p> <ul><li><p>在 layout 组件中去添加缓存</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>mounted() {
+  this.$store.commit(&quot;addCache&quot;, &quot;layoutIndex&quot;);
+},
+</code></pre></div></li> <li><p>在 login 组件中登录成功后移除缓存</p></li> <li><div class="language- extra-class"><pre class="language-text"><code>//清除 Layout 缓存，让他重新渲染
+this.$store.commit(&quot;removeCache&quot;, &quot;layoutIndex&quot;);
+</code></pre></div></li></ul></li> <li><p>处理页面的访问权限，通过给路由添加一个 meta 属性</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>meta: { requiresAuth: true }
+true代表需要拦截
+然后通过导航守卫进行路由拦截
+router.beforeEach((to, from, next) =&gt; {
+  if (to.meta.requiresAuth) {
+    if (store.state.user) {
+      return next();
+    }
+    Dialog.confirm({
+      title: &quot;访问提示&quot;,
+      message: &quot;该功能需要登录才能访问，确认登录吗？&quot;,
+    })
+      .then(() =&gt; {
+        // on confirm
+        router.push(&quot;/login?redirect=&quot; + router.currentRoute.fullPath);
+      })
+      .catch(() =&gt; {
+        // on cancel
+        next(false);
+      });
+  } else {
+    next();
+  }
+});
+</code></pre></div></li></ul></li> <li><p>加壳技术</p> <ul><li>通过 Dcloud 的 HbuilderX 的 5+runtime 来进行加壳
+<ul><li>将 vue 进行打包，真机调试的话保证是在同一个局域网。</li> <li>通过设置 manifest.json 进行配置</li> <li>最后通过 HbuilderX 导入 Public 文件然后运行在 android 即可。</li></ul></li> <li>通过 Dcloud 的 HbuilderX 的 5+runtime 来进行加壳
+<ul><li>将 vue 进行打包，真机调试的话保证是在同一个局域网。</li> <li>通过设置 manifest.json 进行配置</li> <li>最后通过 HbuilderX 导入 Public 文件然后运行在 android 即可。</li></ul></li></ul></li></ul></li></ul></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#_2021-5-14" title="2021.5.14">2021.5.14</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2021-5-18" title="2021.5.18">2021.5.18</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#_2021-5-21" title="2021.5.21">2021.5.21</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/YuMengQAQ" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="https://twitter.com/_ulivz" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter" data-v-3d9deeb8><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>MIT Licensed | Copyright © 2018-present Vue.js</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/liningjiangblog/assets/js/app.7af0e6dd.js" defer></script><script src="/liningjiangblog/assets/js/6.44bff8c3.js" defer></script><script src="/liningjiangblog/assets/js/3.a0d6d2ec.js" defer></script><script src="/liningjiangblog/assets/js/15.c8c9c75c.js" defer></script>
+  </body>
+</html>

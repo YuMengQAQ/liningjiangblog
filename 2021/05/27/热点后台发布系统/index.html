@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>热点后台发布系统项目总结 | 欢迎来到雨梦的博客</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="
+业务逻辑思路以及遇到的一些问题
+
+登录通过后端返回的 token 值来进行跳转，并对其进行路由拦截处理，并封装本地存储函数,让 Token 进行数据持久化
+内容管理模块则对数据进行渲染，其中运用 el-table 进行表格渲染，其中想要自定义列中的内容要用 template 模板进行编译，其中想要拿到遍历的对象数据，要运用 slot-scope="scope"拿到数据进行下一步操 ...">
+    
+    <link rel="preload" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css" as="style"><link rel="preload" href="/liningjiangblog/assets/js/app.7af0e6dd.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/6.44bff8c3.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/3.a0d6d2ec.js" as="script"><link rel="preload" href="/liningjiangblog/assets/js/20.a57df8d0.js" as="script"><link rel="prefetch" href="/liningjiangblog/assets/js/10.6920e32d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/11.264fbc06.js"><link rel="prefetch" href="/liningjiangblog/assets/js/12.7448f34d.js"><link rel="prefetch" href="/liningjiangblog/assets/js/13.a19f686a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/14.f2ff1ee7.js"><link rel="prefetch" href="/liningjiangblog/assets/js/15.c8c9c75c.js"><link rel="prefetch" href="/liningjiangblog/assets/js/16.3568ea1a.js"><link rel="prefetch" href="/liningjiangblog/assets/js/17.d0df175f.js"><link rel="prefetch" href="/liningjiangblog/assets/js/18.8ac063d6.js"><link rel="prefetch" href="/liningjiangblog/assets/js/19.a756df17.js"><link rel="prefetch" href="/liningjiangblog/assets/js/21.53157ddb.js"><link rel="prefetch" href="/liningjiangblog/assets/js/22.fdcbc6c0.js"><link rel="prefetch" href="/liningjiangblog/assets/js/4.a1408bad.js"><link rel="prefetch" href="/liningjiangblog/assets/js/5.d90eba38.js"><link rel="prefetch" href="/liningjiangblog/assets/js/7.a92e51ab.js"><link rel="prefetch" href="/liningjiangblog/assets/js/8.899737b9.js"><link rel="prefetch" href="/liningjiangblog/assets/js/9.527df420.js"><link rel="prefetch" href="/liningjiangblog/assets/js/vuejs-paginate.e9164293.js">
+    <link rel="stylesheet" href="/liningjiangblog/assets/css/0.styles.fb04b12b.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/liningjiangblog/" class="nav-link home-link">欢迎来到雨梦的博客 </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/liningjiangblog/" class="nav-link mobile-home-link">欢迎来到雨梦的博客 </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/liningjiangblog/" class="nav-link">博客</a></li><li class="mobile-nav-item"><a href="/liningjiangblog/tag/" class="nav-link">标签</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">liningjiang</span> <span itemprop="address">   in Chengdu</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-5-27">
+      Thu May 27 2021
+    </time></div> <!----></div></header> <div itemprop="articleBody" class="content__default"><h1 id="热点后台发布系统项目总结"><a href="#热点后台发布系统项目总结" class="header-anchor">#</a> 热点后台发布系统项目总结</h1> <h2 id="业务逻辑思路以及遇到的一些问题"><a href="#业务逻辑思路以及遇到的一些问题" class="header-anchor">#</a> 业务逻辑思路以及遇到的一些问题</h2> <ul><li>登录通过后端返回的 token 值来进行跳转，并对其进行路由拦截处理，并封装本地存储函数,让 Token 进行数据持久化</li> <li>内容管理模块则对数据进行渲染，其中运用 el-table 进行表格渲染，其中想要自定义列中的内容要用 template 模板进行编译，其中想要拿到遍历的对象数据，要运用 slot-scope=&quot;scope&quot;拿到数据进行下一步操作，其中图片运用了 el-image 进行懒加载处理。</li> <li>内容管理模块的筛选业务，就是将其每个数据渲染项的父元素绑定其要提交的参数，请求带参，因为请求本身不带参数后台有设置默认参数，最终设置了所有参数。</li> <li>发布文章模块，使用了 element-tiptap 第三方库，这个库是对 tiptap 进行 element 方法的封装，在路由导航过来传递的 id 可能有过长的原因失真，然后通过 json-bigint 第三方库进行解决，在 request 请求模块中 transformResponse 中去 return jsonBig.parse(data),在使用数据的使用进行 toString 方法。</li> <li>在图片上传中有个问题，就是上传的图片是渲染在标签中的，因为图片是进行编码的，这个编码会很长很长，所以要进行处理，</li></ul> <div class="language- extra-class"><pre class="language-text"><code>   new Image({
+          async uploadRequest(file) {
+            //将文件对象转为formdata
+            let fd = new FormData();
+            fd.append(&quot;image&quot;, file);
+            //请求线上的url地址，最终返回
+            const { data: res } = await getImgUrl(fd);
+            return res.data.url;
+          },
+        }),
+</code></pre></div><ul><li><p>还有 element 组件中有些组件@click 事件不起效，可以通过.native 修饰符让其生效</p></li> <li><p>接口文档说明可能不完整，昨天遇到一个问题，响应报文中有个 value does not match pattern，值不匹配。以后出错看响应报文到底报什么错，仔细理解其含义</p></li> <li><p>文章评论模块中有一个让el-switch开关让其在loading状态中并禁用点击，但是接口中没有loading这种属性。</p> <ul><li><p>解决方案：所以将其拿到的数组添加一个属性，默认为false，当loading状态开启时，禁用的属性同时也是为true，:disabled绑定的就是这个添加的loading属性</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code> //添加一个statusLoading开关加载状态,默认设置false,为了防止点击很多次发送多次请求
+      results.forEach((result) =&gt; {
+        result.statusLoading = false;
+      });
+</code></pre></div></li></ul></li></ul></li> <li><p>素材管理模块其中素材列表进行了封装，可以进行组件定制。其中添加素材按钮使用了element-upload组件。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>&lt;!-- 文件上传 --&gt;
+      &lt;!-- action设置请求地址，name设置上传的字段名，设置上传的请求头部 --&gt;
+      &lt;el-upload
+        class=&quot;upload-demo&quot;
+        action=&quot;http://api-toutiao-web.itheima.net/mp/v1_0/user/images&quot;
+        :headers=&quot;upLoadHeader&quot;
+        name=&quot;image&quot;
+        drag
+        :on-success=&quot;onUploadSuccess&quot;
+        multiple
+        :show-file-list=&quot;false&quot;
+      &gt;
+        &lt;i class=&quot;el-icon-upload&quot;&gt;&lt;/i&gt;
+        &lt;div class=&quot;el-upload__text&quot;&gt;将文件拖到此处，或&lt;em&gt;点击上传&lt;/em&gt;&lt;/div&gt;
+        &lt;div class=&quot;el-upload__tip&quot; slot=&quot;tip&quot;&gt;
+          只能上传jpg/png文件，且不超过500kb
+        &lt;/div&gt;
+      &lt;/el-upload&gt;
+</code></pre></div></li> <li><p>上传必须携带token,也可以自己定义事件上传，只不过稍微有点麻烦。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code> //上传的请求头
+      upLoadHeader: {
+        Authorization: `Bearer ${user.token}`,
+      },
+</code></pre></div></li></ul></li></ul></li> <li><p>发布文章模块使用了一个element-tiptap富文本编辑器，并将上传封面单独封装成一个组件，由于发布文章和修改文章都是同一个页面，所以需要根据$route参数来判断发送请求。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>this.loadChannel();
+    if (this.$route.query.id) {
+      this.loadAssignArticle();
+    }
+</code></pre></div></li> <li><p>修改和更改文章内容也是如此</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>onPublish(draft) {
+
+this.$refs[&quot;publishForm&quot;].validate(async (valid) =&gt; {
+
+​    if (!valid) {
+
+​     return;
+
+​    }
+
+​    const articleId = this.$route.query.id;
+
+​    if (articleId) {
+
+​     //修改文章的操作
+
+​     await updateAssignArticle(articleId, this.article, draft);
+
+​     this.$message({
+
+​      message: &quot;修改成功&quot;,
+
+​      type: &quot;success&quot;,
+
+​     });
+
+​     this.$router.push(&quot;/article&quot;);
+
+​    } else {
+
+​     await publishArticle(this.article, draft);
+
+​     this.$message({
+
+​      message: &quot;发布成功&quot;,
+
+​      type: &quot;success&quot;,
+
+​     });
+
+​     this.article.title = &quot;&quot;;
+
+​     this.article.content = &quot;&quot;;
+
+​     this.$router.push(&quot;/article&quot;);
+
+​    }
+
+   });
+
+  },
+
+
+</code></pre></div></li></ul></li> <li><p>关于富文本编辑器element-tiptap进行一个总结</p> <ul><li><p>先安装</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>npm i element-tiptap
+</code></pre></div></li></ul></li> <li><p>初始配置</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>&lt;template&gt;
+  &lt;el-tiptap v-model=&quot;content&quot; :extensions=&quot;extensions&quot;&gt;&lt;/el-tiptap&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+ import {
+  ElementTiptap,
+  Doc,
+  Text,
+  Paragraph,
+  Heading,
+  Bold,
+  Underline,
+  Italic,
+  Image,
+  Strike,
+  ListItem,
+  BulletList,
+  OrderedList,
+  TodoItem,
+  TodoList,
+  HorizontalRule,
+  Fullscreen,
+  Preview,
+  CodeBlock
+} from 'element-tiptap'
+import 'element-tiptap/lib/index.css'
+
+export default {
+  components: {
+    'el-tiptap': ElementTiptap
+  },
+  data () {
+    return {
+      content: 'hello world',
+      extensions: [
+        new Doc(),
+        new Text(),
+        new Paragraph(),
+        new Heading({ level: 3 }),
+        new Bold({ bubble: true }), // 在气泡菜单中渲染菜单按钮
+        new Image(),
+        new Underline(), // 下划线
+        new Italic(), // 斜体
+        new Strike(), // 删除线
+        new HorizontalRule(), // 华丽的分割线
+        new ListItem(),
+        new BulletList(), // 无序列表
+        new OrderedList(), // 有序列表
+        new TodoItem(),
+        new TodoList(),
+        new Fullscreen(),
+        new Preview(),
+        new CodeBlock()
+      ]
+    }
+  }
+}
+&lt;/script&gt;
+</code></pre></div></li></ul></li></ul></li> <li><p>在上传封面组件中又一次使用了el-tabs组件，并对其imag-list素材库组件进行了个性化定制。其中文件上传使用了file类型的input框，在选择框div中设置input框的点击。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>  el-tabs 组件
+          v-model 双向绑定
+            数据驱动视图：当绑定数据发生改变，激活的标签页受影响
+            视图影响数据：当标签改变的时候，标签的 name 会同步到数据中
+          label 标签的标题
+          name 相当于标签的 id
+</code></pre></div></li></ul></li> <li><p>在确定提交文件的时候，做判断，并且上传图片的化拿到的是文件对象，需要去请求接口返回url地址。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>//确定提交文件
+    async onUploadCover() {
+      if (this.activeName === &quot;upload&quot;) {
+        const file = this.$refs.uploadCover.files[0];
+        //上传图片
+        if (!file) {
+          this.$message(&quot;请选择图片&quot;);
+          return;
+        }
+        const fd = new FormData();
+        fd.append(&quot;image&quot;, file);
+        //上传用户素材返回url
+        const { data: res } = await getImgUrl(fd);
+        this.publishImage = res.data.url;
+        //关闭对话框
+        this.uploadDialogVisible = false;
+        this.$message({
+          message: &quot;上传图片成功&quot;,
+          type: &quot;success&quot;,
+        });
+        //向父组件传url
+        // this.$emit(&quot;update-url&quot;, this.publishImage);
+        this.$emit(&quot;input&quot;, this.publishImage);
+        //隐藏加号元素
+        this.$refs[&quot;addImage&quot;].style = &quot;display:none&quot;;
+      } else if (this.activeName === &quot;image&quot;) {
+        //获取组件元素，通过refs方式
+        const imageList = this.$refs[&quot;imageList&quot;];
+        const selected = imageList.selected;
+        if (selected === null) {
+          this.$message(&quot;请选择图片&quot;);
+          return;
+        }
+
+        //关闭对话框
+        this.uploadDialogVisible = false;
+        //发送父组件图片地址
+        this.$emit(&quot;input&quot;, imageList.imageList[selected].url);
+        //隐藏加号元素
+        this.$refs[&quot;addImage&quot;].style = &quot;display:none&quot;;
+        //消息框
+        this.$message({
+          message: &quot;上传图片成功&quot;,
+          type: &quot;success&quot;,
+        });
+      }
+</code></pre></div></li></ul></li> <li><p>Upload-file这个上传封面组件进行了v-model绑定。</p> <ul><li>一个组件上的 <code>v-model</code> 默认会利用名为 <code>value</code> 的 prop 和名为 <code>input</code> 的事件，但是像单选框、复选框等类型的输入控件可能会将 <code>value</code> attribute 用于<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#Value" target="_blank" rel="noopener noreferrer">不同的目的<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a>。<code>model</code> 选项可以用来避免这样的冲突：</li></ul></li></ul></li> <li><p>粉丝管理模块是对数据进行简单的渲染，其中粉丝统计用到了echarts，具体操作看echarts的文档。</p></li> <li><p>个人设置模块则获取到用户信息进行初始化渲染，并且使用到了图片裁切，运用的是cropper.js，先上传图片直接开始裁切。个人设置的上传图片稍有不同。</p> <ul><li><p>通过的是label for 和Input 的id属性建立联系</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code> &lt;label for=&quot;file&quot; class=&quot;avatar-wrap&quot;&gt;
+            &lt;el-avatar :size=&quot;150&quot; fit=&quot;cover&quot; :src=&quot;user.photo&quot;&gt;&lt;/el-avatar&gt;
+            &lt;el-tag class=&quot;avatar-title&quot;&gt;点击修改头像&lt;/el-tag&gt;
+          &lt;/label&gt;
+          &lt;input
+            type=&quot;file&quot;
+            hidden
+            id=&quot;file&quot;
+            ref=&quot;imgInput&quot;
+            @change=&quot;onUploadChange&quot;
+          /&gt;
+</code></pre></div></li></ul></li> <li><p>cropper.js裁切安装及使用过程</p> <ul><li><p>先安装</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>npm install cropperjs
+</code></pre></div></li></ul></li> <li><p>再导入css和裁切</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>import &quot;cropperjs/dist/cropper.css&quot;;
+import Cropper from &quot;cropperjs&quot;;
+</code></pre></div></li></ul></li> <li><p>最后在打开dialog弹出框的时候初始化裁切器，在关闭的时候销毁裁切器。如果需要在组件初始化就进行初始化裁切器的话，则需要在mounted函数中。</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>//弹出框确定提交
+    onSuccessSumbit() {
+      //开启成功的加载状态
+      this.sucessLoading = true;
+      this.cropper.getCroppedCanvas().toBlob(async (file) =&gt; {
+        const fd = new FormData();
+        fd.append(&quot;photo&quot;, file);
+        //发送请求
+        await updateUserPhoto(fd);
+        //关闭对话框
+        this.imgDialogVisible = false;
+        this.$message({
+          message: &quot;更新头像成功&quot;,
+          type: &quot;success&quot;,
+        });
+        //更改用户地址
+        this.user.photo = window.URL.createObjectURL(file);
+        //通过事件总线存储这个预览图片
+        globalBus.$emit(&quot;updateImg&quot;, this.previewImage);
+        //关闭加载状态
+        this.sucessLoading = false;
+      });
+    },
+</code></pre></div></li> <li><p>在个人设置页面提交图片成功后头像成功更改，但是顶部的头像和名字不会更改，因为是非父子组件，跨级组件之间则需要事件总线来解决问题。</p> <ul><li><p>先封装一个总线js文件并导出</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>import Vue from &quot;vue&quot;;
+export default new Vue();
+</code></pre></div></li></ul></li> <li><p>在需要通信的组件互相导入</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>import globalBus from &quot;@/utils/global-bus&quot;;
+</code></pre></div></li></ul></li> <li><p>A向B组件发射事件，比如这里个人设置页面发送给layout组件</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code> globalBus.$emit(&quot;updateName&quot;, res.data.name);
+ globalBus.$emit(&quot;updateImg&quot;, this.previewImage);
+</code></pre></div></li></ul></li> <li><p>B组件进行注册，接受一个回调函数</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code> //更新名字
+    globalBus.$on(&quot;updateName&quot;, (name) =&gt; {
+      this.user.name = name;
+    });
+    //更新图片
+    globalBus.$on(&quot;updateImg&quot;, (img) =&gt; {
+      this.user.photo = img;
+    });
+</code></pre></div></li></ul></li></ul></li></ul></li></ul></li></ul></li> <li><p>最近对项目进行了一些简单的打包优化处理</p> <ul><li><p>所谓的优化主要涉及到两方面：</p> <ul><li>构建速度的优化</li> <li>构建质量的优化</li></ul></li> <li><p>Gzip 压缩</p> <ul><li>Gzip 压缩是一种数据传输过程中的压缩方式，它可以极大的压缩文件的大小。注意：它不影响原始文件。</li> <li>网站加载的速度很大程序取决于网站资源文件的大小，减少要传输的文件的大小可以使网站不仅加载更快，而且对于那些宽带是按量计费的用户来说也更友好。</li> <li>HTTP协议上的GZIP编码是一种用来改进WEB应用程序性能的技术。</li> <li>好处：Gzip 开启以后会将输出到用户浏览器的数据进行压缩的处理，这样就会减小通过网络传输的数据量，提高文件传输的速度。</li> <li>备注：一般是部署的时候设置，比如：nginx、Tomcat…</li></ul></li> <li><p>不打包第三方包</p> <ul><li><p>作用：提高编译的速度。</p></li> <li><p>影响打包速度最根本的原因就是某些第三方包体积过大，所以打包速度就很慢。解决它的办法也非常简单：不对它打包！不要让 webpack 来处理它。可是不处理它，把它放哪里呢？通过 <code>script</code> 标签加载它，就不被 webpack 处理了。我们推荐使用第三方的 CDN 来加载资源，所谓的 CDN 说白了就是一个在线链接。</p> <ul><li><p>bootcdn：不错，国内的一个服务</p></li> <li><p>cdnjs：不推荐，国外的，速度慢</p></li> <li><p>unpkg：不推荐，国外的，速度慢</p></li> <li><p><a href="https://www.jsdelivr.com/" target="_blank" rel="noopener noreferrer">jsdelivr<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> ：国外的，但是在国内有它的服务节点，推荐</p></li> <li><ul><li>全球 CDN 优化</li></ul></li> <li><ul><li>凡是能通过 npm 下载的包，它里面都有</li></ul></li></ul></li> <li><p>但是通过 script 标签加载的资源如何使用呢？那就得做一些特殊配置了。</p> <ul><li><p>在项目的根目录创建 <code>vue.config.js</code></p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>/**
+ * Vue CLI 的配置文件
+ * 这里可以自定义 VueCLI 内部的 webpack 配置
+ */
+
+// 该配置文件必须导出一个对象（Node 中的模块语法）
+module.exports = {
+  // 自定义 VueCLI 中的 webpack 配置
+  configureWebpack: {
+    // 告诉 webpack 使用 script 标签加载的那个资源，而不是去 node_moudles 中打包处理
+    externals: {
+      // 属性名：你加载的那个包名
+      // 属性值：script 标签暴露的全局变量，注意，写到字符串中！！！
+      // 'element-ui': 'ELEMENT'
+      'vue': 'Vue',
+      'element-ui': 'ELEMENT',
+      'echarts': 'echarts'
+    }
+  }
+}
+</code></pre></div></li></ul></li></ul></li></ul></li> <li><p>最后进行打包测试</p></li> <li><p>进行路由懒加载</p></li> <li><p>按需加载第三方组件</p></li> <li><p>缓存和并行处理</p> <ul><li><p>VueCLI 内置了：</p> <ul><li><p><code>cache-loader</code> 会默认为 Vue/Babel/TypeScript 编译开启。文件会缓存在 <code>node_modules/.cache</code> 中——如果你遇到了编译方面的问题，记得先删掉缓存目录之后再试试看。</p></li> <li><p><code>thread-loader</code> 会在多核 CPU 的机器上为 Babel/TypeScript 转译开启</p></li></ul></li> <li><p>如果你没有使用 VueCLI，自己搭建的 webpak，建议加上这两个工具优化构建速度。</p></li></ul></li></ul></li> <li><p>补充一下：功能优化</p> <ul><li><p>在客户端造成的一系列响应码的处理以及有人非正常登录的处理</p></li> <li><p>在axios响应拦截器中处理</p> <ul><li><div class="language- extra-class"><pre class="language-text"><code>request.interceptors.response.use(
+  function(response) {
+    // 在接收响应做些什么，例如跳转到登录页
+
+    return response;
+  },
+  function(error) {
+    // 对响应错误做点什么
+    if (error.response &amp;&amp; error.response.status === 401) {
+      //清除本地伪造的user
+      removeItem(&quot;user&quot;);
+      //跳转到登录页
+      router.push(&quot;/login&quot;);
+      Message.error(&quot;登录状态无效，请重新登录&quot;);
+    } else if (error.response.status === 403) {
+      Message.error({
+        type: &quot;warning&quot;,
+        message: &quot;没有操作权限&quot;,
+      });
+    } else if (error.response.status === 400) {
+      Message.error(&quot;请求参数错误&quot;);
+    } else if (error.response.status &gt;= 500) {
+      Message.error(&quot;服务器内容错误，请稍后再试&quot;);
+    }
+    return Promise.reject(error);
+  }
+);
+</code></pre></div></li></ul></li></ul></li></ul></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#业务逻辑思路以及遇到的一些问题" title="业务逻辑思路以及遇到的一些问题">业务逻辑思路以及遇到的一些问题</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/YuMengQAQ" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="https://twitter.com/_ulivz" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter" data-v-3d9deeb8><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" data-v-3d9deeb8></path></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy?hl=en-US" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>MIT Licensed | Copyright © 2018-present Vue.js</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/liningjiangblog/assets/js/app.7af0e6dd.js" defer></script><script src="/liningjiangblog/assets/js/6.44bff8c3.js" defer></script><script src="/liningjiangblog/assets/js/3.a0d6d2ec.js" defer></script><script src="/liningjiangblog/assets/js/20.a57df8d0.js" defer></script>
+  </body>
+</html>
